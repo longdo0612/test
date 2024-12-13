@@ -6,7 +6,7 @@
         "name": "Ricksoft, Inc.",
         "url": "https://ricksoft-inc.com/"
     },
-    "baseUrl": "https://ddo9b0fzbg8db.cloudfront.net",
+    "baseUrl": "https://d28qzydm00n0fj.cloudfront.net",
     "enableLicensing": false,
     "authentication": {
         "type": "jwt"
