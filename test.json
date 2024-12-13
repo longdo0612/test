@@ -1,0 +1,489 @@
+{
+    "key": "jp.ricksoft.plugins.wbsgantt-for-jira",
+    "name": "WBS Gantt-Chart for Jira",
+    "description": "Project Management tool based on WBS and Gantt-Chart",
+    "vendor": {
+        "name": "Ricksoft, Inc.",
+        "url": "https://ricksoft-inc.com/"
+    },
+    "baseUrl": "https://ddo9b0fzbg8db.cloudfront.net",
+    "enableLicensing": false,
+    "authentication": {
+        "type": "jwt"
+    },
+    "lifecycle": {
+        "installed": "/rest/installed",
+        "enabled": "/rest/enabled"
+    },
+    "scopes": ["READ", "WRITE", "ADMIN", "ACT_AS_USER"],
+    "apiMigrations": {
+        "context-qsh": true,
+        "signed-install": true
+    },
+    "modules": {
+        "generalPages": [{
+            "url": "/main.html?filter={ac.filter}&tm={ac.tm}",
+            "icon": {
+                "width": 80,
+                "height": 80,
+                "url": "/maps/icon.png"
+            },
+            "name": {
+                "value": "WBS Gantt-Chart",
+                "i18n": "main"
+            },
+            "key": "main",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "none"
+        }, {
+            "url": "/gantt.html?filter={ac.filter}&pjsc={ac.pjsc}&tab={ac.tab}",
+            "icon": {
+                "width": 80,
+                "height": 80,
+                "url": "/maps/icon.png"
+            },
+            "name": {
+                "value": "WBS Gantt-Chart",
+                "i18n": "gantt"
+            },
+            "key": "gantt",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "none"
+        }, {
+            "url": "/import-gantt-project-dialog.html",
+            "name": {
+                "value": "Import Gantt from Project",
+                "i18n": "import-gantt-project-dialog"
+            },
+            "key": "import-gantt-project-dialog",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "none"
+        }, {
+            "url": "/create-gantt.html",
+            "name": {
+                "value": "Create Gantt",
+                "i18n": "create-gantt"
+            },
+            "key": "create-gantt",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "none"
+        }, {
+            "url": "/create-gantt-project-dialog.html",
+            "name": {
+                "value": "Create Gantt from Project",
+                "i18n": "create-gantt-project-dialog"
+            },
+            "key": "create-gantt-project-dialog",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "none"
+        }, {
+            "url": "/create-gantt-filter-dialog.html",
+            "name": {
+                "value": "Create Gantt from Filter",
+                "i18n": "create-gantt-filter-dialog"
+            },
+            "key": "create-gantt-filter-dialog",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "none"
+        }, {
+            "url": "/gantts.html",
+            "name": {
+                "value": "Gantts",
+                "i18n": "gantts"
+            },
+            "key": "gantts",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "none"
+        }, {
+            "url": "/global-configuration.html",
+            "name": {
+                "value": "Global Configuration",
+                "i18n": "global-configuration"
+            },
+            "key": "global-configuration",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "none"
+        }, {
+            "url": "/getting-started.html",
+            "name": {
+                "value": "Getting Started",
+                "i18n": "getting-started-page"
+            },
+            "key": "getting-started-page",
+            "location": "none"
+        }],
+        "postInstallPage": {
+            "url": "/getting-started.html",
+            "name": {
+                "value": "Getting Started",
+                "i18n": "getting-started-page"
+            },
+            "key": "post-install-page"
+        },
+        "adminPages": [{
+            "url": "/admin-ticket.html",
+            "name": {
+                "value": "Issue",
+                "i18n": "admin-ticket-page"
+            },
+            "key": "admin-ticket-page",
+            "conditions": [{
+                "condition": "user_is_admin"
+            }],
+            "location": "admin_plugins_menu/admin-menu-section"
+        }, {
+            "url": "/admin-application-permission.html",
+            "name": {
+                "value": "Permission",
+                "i18n": "admin-application-permission-page"
+            },
+            "key": "admin-application-permission-page",
+            "conditions": [{
+                "condition": "user_is_admin"
+            }],
+            "location": "admin_plugins_menu/admin-menu-section"
+        }, {
+            "url": "/admin-user-preferences.html",
+            "name": {
+                "value": "Default user preferences",
+                "i18n": "admin-user-preferences-page"
+            },
+            "key": "admin-user-preferences-page",
+            "conditions": [{
+                "condition": "user_is_admin"
+            }],
+            "location": "admin_plugins_menu/admin-menu-section"
+        }, {
+            "url": "/admin-migration.html",
+            "name": {
+                "value": "Migration Information",
+                "i18n": "admin-migration-page"
+            },
+            "key": "admin-migration-page",
+            "conditions": [{
+                "condition": "user_is_admin"
+            }],
+            "location": "admin_plugins_menu/admin-menu-section"
+        }],
+        "webSections": [{
+            "key": "admin-menu-section",
+            "location": "admin_plugins_menu",
+            "name": {
+                "value": "WBS Gantt-Chart",
+                "i18n": "admin-menu-section"
+            }
+        }, {
+            "name": {
+                "value": "Gantt Menu",
+                "i18n": "top-menu-section-gantt"
+            },
+            "location": "top-menu",
+            "key": "top-menu-section-gantt"
+        }, {
+            "key": "gantt-menu-section",
+            "location": "atl.jira.proj.config",
+            "name": {
+                "value": "Project-Gantt Link"
+            }
+        }],
+        "webItems": [{
+            "name": {
+                "value": "Create Gantt",
+                "i18n": "top-menu-create-gantt"
+            },
+            "context": "page",
+            "url": "create-gantt",
+            "key": "top-menu-create-gantt",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "top-menu/top-menu-section-gantt",
+            "weight": 10
+        }, {
+            "name": {
+                "value": "WBS Gantt-Chart",
+                "i18n": "top-menu-show-all-gantts"
+            },
+            "context": "page",
+            "url": "gantts",
+            "icon": {
+                "width": 24,
+                "height": 24,
+                "url": "/images/wbsgantt-logo.png"
+            },
+            "key": "top-menu-show-all-gantts",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }],
+            "location": "system.top.navigation.bar"
+        }],
+        "webPanels": [{
+            "key": "wbsgantt-issue-right-panel",
+            "location": "atl.jira.view.issue.right.context",
+            "name": {
+                "value": "WBS Gantt-Chart",
+                "i18n": "wbsgantt-issue-right-panel"
+            },
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }, {
+                "or": [{
+                    "condition": "entity_property_exists",
+                    "invert": true,
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon"
+                    }
+                }, {
+                    "condition": "entity_property_equal_to",
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon",
+                        "objectName": "hide",
+                        "value": "false"
+                    }
+                }]
+            }],
+            "url": "/wbsgantt-issue-right.html?issueId={issue.id}"
+        }],
+        "jiraIssueContents": [{
+            "icon": {
+                "width": 24,
+                "height": 24,
+                "url": "/images/wbsgantt-icon-bw.svg"
+            },
+            "target": {
+                "type": "web_panel",
+                "url": "/issue-hierarchy.html?issueId={issue.id}"
+            },
+            "tooltip": {
+                "value": "Show parent-child relationships between issues",
+                "i18n": "issue-hierarchy-tooltip"
+            },
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }, {
+                "condition": "entity_property_equal_to",
+                "invert": true,
+                "params": {
+                    "entity": "addon",
+                    "propertyKey": "use-issue-link",
+                    "value": "true",
+                    "objectName": "hierarchy"
+                }
+            }, {
+                "or": [{
+                    "condition": "entity_property_exists",
+                    "invert": true,
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon"
+                    }
+                }, {
+                    "condition": "entity_property_equal_to",
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon",
+                        "objectName": "hide",
+                        "value": "false"
+                    }
+                }]
+            }],
+            "contentPresentConditions": [{
+                "condition": "user_is_logged_in",
+                "invert": false
+            }],
+            "name": {
+                "value": "Issue hierarchy",
+                "i18n": "issue-hierarchy"
+            },
+            "key": "issue-hierarchy"
+        }, {
+            "icon": {
+                "width": 24,
+                "height": 24,
+                "url": "/images/wbsgantt-icon-bw.svg"
+            },
+            "target": {
+                "type": "web_panel",
+                "url": "/issue-dependencies.html?issueId={issue.id}"
+            },
+            "tooltip": {
+                "value": "Show dependency links between issues",
+                "i18n": "issue-dependencies-tooltip"
+            },
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }, {
+                "condition": "entity_property_equal_to",
+                "invert": true,
+                "params": {
+                    "entity": "addon",
+                    "propertyKey": "use-issue-link",
+                    "value": "true",
+                    "objectName": "dependency"
+                }
+            }, {
+                "or": [{
+                    "condition": "entity_property_exists",
+                    "invert": true,
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon"
+                    }
+                }, {
+                    "condition": "entity_property_equal_to",
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon",
+                        "objectName": "hide",
+                        "value": "false"
+                    }
+                }]
+            }],
+            "contentPresentConditions": [{
+                "condition": "user_is_logged_in",
+                "invert": false
+            }],
+            "name": {
+                "value": "Issue dependency",
+                "i18n": "issue-dependencies"
+            },
+            "key": "issue-dependencies"
+        }, {
+            "icon": {
+                "width": 24,
+                "height": 24,
+                "url": "/images/wbsgantt-icon-bw.svg"
+            },
+            "target": {
+                "type": "web_panel",
+                "url": "/issue-dependencies.html?issueId={issue.id}"
+            },
+            "tooltip": {
+                "value": "Show dependency links between issues",
+                "i18n": "issue-dependencies-hide-tooltip"
+            },
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }, {
+                "condition": "entity_property_equal_to",
+                "invert": false,
+                "params": {
+                    "entity": "addon",
+                    "propertyKey": "use-issue-link",
+                    "value": "true",
+                    "objectName": "dependency"
+                }
+            }, {
+                "or": [{
+                    "condition": "entity_property_exists",
+                    "invert": true,
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon"
+                    }
+                }, {
+                    "condition": "entity_property_equal_to",
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon",
+                        "objectName": "hide",
+                        "value": "false"
+                    }
+                }]
+            }],
+            "name": {
+                "value": "Issue dependency",
+                "i18n": "issue-dependencies-hide"
+            },
+            "key": "issue-dependencies-hide"
+        }],
+        "keyboardShortcuts": [{
+            "shortcut": "gl",
+            "target": {
+                "key": "gantts"
+            },
+            "context": "global",
+            "name": {
+                "value": "Shorcut back to Gantts List."
+            },
+            "key": "keyboard-shortcut-ganttslist"
+        }],
+        "jiraProjectPages": [{
+            "key": "edit-link-gantt-software",
+            "name": {
+                "value": "WBS Gantt-Chart"
+            },
+            "url": "/main.html?tm={ac.tm}",
+            "iconUrl": "/images/wbsgantt-icon-bw.svg",
+            "weight": 2,
+            "conditions": [{
+                "or": [{
+                    "condition": "project_type",
+                    "params": {
+                        "projectTypeKey": "service_desk"
+                    }
+                }, {
+                    "condition": "project_type",
+                    "params": {
+                        "projectTypeKey": "software"
+                    }
+                }, {
+                    "condition": "project_type",
+                    "params": {
+                        "projectTypeKey": "business"
+                    }
+                }]
+            }, {
+                "or": [{
+                    "condition": "entity_property_exists",
+                    "invert": true,
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon"
+                    }
+                }, {
+                    "condition": "entity_property_equal_to",
+                    "params": {
+                        "entity": "project",
+                        "propertyKey": "wgcDisplaySidebarIcon",
+                        "objectName": "hide",
+                        "value": "false"
+                    }
+                }]
+            }]
+        }],
+        "jiraProjectAdminTabPanels": [{
+            "location": "gantt-menu-section",
+            "url": "/project-settings.html",
+            "weight": 100,
+            "name": {
+                "value": "WBS Gantt-Chart"
+            },
+            "key": "gantt-panel"
+        }]
+    },
+    "translations": {
+        "paths": {
+            "en-US": "/i18n/en.json",
+            "ja-JP": "/i18n/ja.json"
+        }
+    }
+}
