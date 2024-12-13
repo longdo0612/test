@@ -1,0 +1,28 @@
+{
+    "buildVersion": "1.1.8",
+    "baseUrl": "https://ddo9b0fzbg8db.cloudfront.net",
+    "accountId": "590183862216",
+    "region": "us-west-2",
+    "projectName": "pumpkin2",
+    "dynamodb": {
+      "tablePrefix": "pumpkin2",
+      "region": "us-west-2",
+      "identityPoolId": "us-west-2:b4ab7534-824e-427e-be09-0d4cb57254b1",
+      "endpoint": "https://ddo9b0fzbg8db.cloudfront.net/db"
+    },
+    "s3" : {
+      "ignoreKeyAndRegionAndUseAwsSdkSettings": true,
+      "accessKeyId": "ASIAYS2NTB7EJXQU2NJ2",
+      "secretAccessKey": "upvw7olpwUiYceaVVZ5auetrdLJptYkz1m8Zmlg9",
+      "region": "us-west-2",
+      "bucket": "pumpkin2-dev"
+    },
+    "cloudfront": {
+      "distribution": "EN623UCYR00S4"
+    },
+    "nextgen": {
+      "endpoint": "https://ddo9b0fzbg8db.cloudfront.net/nextgen"
+    },
+    "googleApiKey": "XXXXXXXXXXXXXXXXX",
+    "sourceMap": false
+  }
